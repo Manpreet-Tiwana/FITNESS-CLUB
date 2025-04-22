@@ -40,7 +40,7 @@ if(chatbox.classList.contains("active-chat-box")){
 
 
 
-// let Api_url= paste your api url from google gemini website
+let Api_url= "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyCNP8qdD7u1ByvookThF5DNjcdTHrZheyU"
 
 async function generateApiResponse(aiChatBox){
     const textElement=aiChatBox.querySelector(".text")
@@ -77,7 +77,7 @@ function createChatBox(html,className){
 
     function showLoading(){
         const html=`<p class="text"></p>
-        <img src="load.gif" class="loading" width="50px">`
+        <img src="Static/load.gif" class="loading" width="50px">`
           let aiChatBox=createChatBox(html,"ai-chat-box")
        chatContainer.appendChild(aiChatBox)
       generateApiResponse(aiChatBox)
@@ -130,35 +130,38 @@ recognition.onresult=(event)=>{
 
 function takeCommand(message){
 if(message.includes("open") && message.includes("chat")){
-  speak("okay sir")
+  speak("here you go")
   chatbox.classList.add("active-chat-box")
 }else if(message.includes("close") && message.includes("chat")){
   speak("okay sir")
   chatbox.classList.remove("active-chat-box")
-}else if(message.includes("back")){
-  speak("okay sir")
+}else if(message.includes("back workout")){
+  speak("here you go")
   window.open("back.html","_self")
-}else if(message.includes("chest")){
-  speak("okay sir")
+}else if(message.includes("chest workout")){
+  speak("here you go")
   window.open("chest.html","_self")
 }
 else if(message.includes("biceps")|| message.includes("triceps")){
-  speak("okay sir")
+  speak("here you go")
   window.open("biceps-triceps.html","_self")
-}else if(message.includes("shoulder")){
-  speak("okay sir")
+}else if(message.includes("shoulder workout")){
+  speak("here you go")
   window.open("shoulder.html","_self")
-}else if(message.includes("leg")){
-  speak("okay sir")
+}else if(message.includes("leg workout")){
+  speak("here you go")
   window.open("leg.html","_self")
-}else if(message.includes("home")){
-  speak("okay sir")
+}else if(message.includes("go to home")){
+  speak("Navigating to home")
   window.open("index.html","_self")
 }else if(message.includes("hello")||message.includes("hey")){
-  speak("hello sir,what can i help you?")
+  speak("hello madam, what can i help you?")
 }
 else if(message.includes("who are you")){
   speak("i am virtual assistant")
+}
+else if(message.includes("what's your name")){
+  speak("i am Manu, a virtual assistant")
 }
 else if(message.includes("open youtube")){
   speak("opening youtube...")
@@ -193,9 +196,9 @@ else if(message.includes("date")){
   speak(date)
 }
 else{
-  let finalText="this is what i found on internet regarding" + message.replace("shipra","") || message.replace("shifra","")
+  let finalText="this is what i found on internet regarding" + message.replace("Manu","") || message.replace("Manu","")
   speak(finalText)
-  window.open(`https://www.google.com/search?q=${message.replace("shipra","")}`,"_blank")
+  window.open(`https://www.google.com/search?q=${message.replace("Manu","")}`,"_blank")
 }
 }
 ai.addEventListener("click",()=>{
